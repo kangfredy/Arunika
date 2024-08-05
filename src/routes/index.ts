@@ -1,7 +1,6 @@
-import type { Express, Request, Response } from "express";
+import type { Express } from "express";
+import { loginController } from "../controller/authentication";
 
 export const v1Router = (app: Express) => {
-  app.post("/v1/login", (req: Request, res: Response) => {
-    res.status(200).json({ message: "v1 login" });
-  });
+  app.post("/v1/login", loginController);
 };
