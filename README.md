@@ -1,4 +1,4 @@
-# agni
+# arunika
 
 To install dependencies:
 
