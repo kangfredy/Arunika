@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "target": "ES6",
-    "module": "CommonJS",
-    "moduleDetection": "force",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "allowJs": true,
     "outDir": "./dist",
     "rootDir": ".",
+    "allowSyntheticDefaultImports": true,
 
     // Bundler mode
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "noEmit": true,
 
     // Best practices
@@ -24,5 +24,10 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   }
 }

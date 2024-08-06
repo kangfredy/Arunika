@@ -1,55 +1,57 @@
 import type { Knex } from "knex";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // Update with your config settings.
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "postgresql",
+    client: process.env.DB_CLIENT as string,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "arunika_migrations",
       directory: "./src/database/migration",
     },
   },
 
   staging: {
-    client: "postgresql",
+    client: process.env.DB_CLIENT,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "arunika_migrations",
       directory: "./src/database/migration",
     },
   },
 
   production: {
-    client: "postgresql",
+    client: process.env.DB_CLIENT,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "arunika_migrations",
       directory: "./src/database/migration",
     },
   },

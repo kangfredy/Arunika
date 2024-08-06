@@ -1,5 +1,5 @@
 export const db = require("knex")({
-  client: process.env.DB_CLIENT,
+  client: process.env.DB_CLIENT_CODE,
   connection: {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,

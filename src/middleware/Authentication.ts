@@ -1,8 +1,8 @@
-import { Response, NextFunction } from "express";
-import { CommonRequest } from "../interface/authentication/Request/authenticate";
+import type { Response, NextFunction } from "express";
+import type { CommonRequest } from "../interface/authentication/Request/authenticate";
 import jwt from "jsonwebtoken";
 
-// Middleware untuk autentikasi menggunakan JWT
+// middleware for authenticate JWT
 const authenticateJWT = (
   req: CommonRequest,
   res: Response,
@@ -12,11 +12,14 @@ const authenticateJWT = (
   if (!token) {
     return res.sendStatus(403);
   }
-  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+  jwt.verify(token, process.env.SECRET_KEY as string, (err, user) => {
     if (err) {
       return res.sendStatus(403);
     }
-    req.user = user;
+    req.user = {
+      username: user as string,
+      email: user as string,
+    };
     next();
   });
 };
