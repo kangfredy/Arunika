@@ -24,4 +24,11 @@ const authenticateJWT = (
   });
 };
 
+export const generateAccessToken = (userData: any) => {
+  const payload = userData;
+  return jwt.sign(payload, process.env.SECRET_KEY as string, {
+    algorithm: "HS256",
+  });
+};
+
 export default authenticateJWT;
