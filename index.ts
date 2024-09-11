@@ -3,8 +3,10 @@ import * as swaggerUI from "swagger-ui-express";
 import * as swaggerDocument from "./swagger.json";
 import { apiRoute } from "./src/routes";
 import { globalConfig } from "./src/config";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 //define routes
 apiRoute(app);
