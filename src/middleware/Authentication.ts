@@ -1,6 +1,8 @@
 import type { Response, NextFunction } from "express";
 import type { CommonRequest } from "../interface/authentication/Request/authenticate";
 import jwt from "jsonwebtoken";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // middleware for authenticate JWT
 const authenticateJWT = (
